@@ -7,7 +7,6 @@ export const UserList = ({ users }) => {
                     <th>Id</th>
                     <th>Name</th>
                     <th>Surname</th>
-                    <th>Login</th>
                     <th>Password</th>
                 </tr>
             </thead>
@@ -17,7 +16,6 @@ export const UserList = ({ users }) => {
                         <td>{elm.id}</td>
                         <td>{elm.name}</td>
                         <td>{elm.surname}</td>
-                        <td>{elm.login}</td>
                         <td>{elm.password}</td>
                     </tr>)
                 }

@@ -7,7 +7,7 @@ import './App.css'
 
 function App() {
   const [users, setUsers] = useState([
-    { id: 101, name: 'Joe', surname: 'Asatryan', login: 'asatryan999', password: 'joe1234' }
+    { id: 101, name: 'Joe', surname: 'Asatryan', login: 'asatryan999@gmail.com', password: 'joe1234' }
   ])
 
   const handleAdd = (obj) => {

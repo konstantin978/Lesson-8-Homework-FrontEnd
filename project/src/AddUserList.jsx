@@ -2,18 +2,43 @@ import { useState } from "react"
 
 export const AddUser = ({ onAdd }) => {
 
-    const [user, setUser] = useState({ name: '', salary: '', profession: '' })
+    const [user, setUser] = useState({ name: '', surname: '', login: '', password: '' })
     const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
 
     const handleSubmit = e => {
         e.preventDefault()
+        setSuccess('')
+
+        const mail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
         if (!user.name.trim()) {
             return setError('Name is required')
         }
-        onAdd(user)
-        setUser({ name: '', salary: '', profession: '' })
         setError('')
+        if (!user.surname.trim()) {
+            return setError('Surname is required')
+        }
+        setError('')
+        if (!user.login.trim()) {
+            return setError('Login is required')
+        }
+        setError('')
+        if (!user.password.trim()) {
+            return setError('Password is required')
+        }
+        setError('')
+        if (!mail.test(user.login)) {
+            return setError('Login is Incorrect')
+        }
+        setError('')
+        if(user.password.length < 6) {
+            return setError('Password must be at least 6 characters')
+        }
+        onAdd(user)
+        setUser({ name: '', surname: '', login: '', password: '' })
+        setError('')
+        setSuccess('Successfully')
     }
 
     return <div>
@@ -21,6 +46,7 @@ export const AddUser = ({ onAdd }) => {
         <form onSubmit={handleSubmit}>
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
+            {success && <p style={{ color: 'green' }}>{success}</p>}
 
             <input
                 placeholder="Name"
