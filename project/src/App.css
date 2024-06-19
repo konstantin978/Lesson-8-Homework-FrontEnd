@@ -1,0 +1,15 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 900px;
+}
+
+tr,th,td,table {
+  border: 1px solid green;
+}
